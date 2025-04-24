@@ -1,0 +1,1180 @@
+/* style.css - Completo con todos los estilos y Hero más compacto */
+
+/* --- Reset Básico y Fuentes --- */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Lato', sans-serif; /* Fuente para cuerpo */
+    line-height: 1.7;
+    /* Fondo oscuro principal usando el color oficial */
+    background-color: var(--color-dark-primary);
+    color: #ccc; /* Texto principal claro */
+    overflow-x: hidden; /* Evita la barra de scroll horizontal */
+}
+
+.container {
+    max-width: 1140px; /* Ancho máximo estándar para centrar contenido */
+    margin: 0 auto;
+    padding: 0 15px; /* Padding a los lados */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Evita espacio extra debajo de imágenes */
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Montserrat', sans-serif; /* Fuente para títulos */
+    font-weight: 700;
+    margin-bottom: 0.8em; /* Espacio debajo de títulos */
+    color: var(--text-light); /* Default title color (light) */
+}
+
+/* Ajuste para títulos en secciones con fondo claro */
+.cursos-section h2,
+.cursos-section h3, /* H3 in cards */
+.cursos-section h4, /* H4 in cards */
+/* El texto del demo visual ahora está dentro del .phone, su color se maneja allí */
+.demo-visual-container .demo-text */ {
+     color: var(--color-dark-primary); /* Usa el color oscuro para títulos en secciones claras */
+}
+
+/* Estilo específico para el texto descriptivo debajo del celular animado (si lo vuelves a poner) */
+.demo-visual-container .demo-text {
+    font-weight: 700;
+    color: var(--color-dark-primary); /* Texto demo oscuro */
+    font-family: 'Montserrat', sans-serif;
+    margin-top: 1.5rem; /* Espacio encima */
+    text-align: center;
+}
+
+
+/* --- Paleta de Colores Oficiales --- */
+:root {
+    --color-dark-primary: #23263d; /* Azul/Gris Oscuro Principal */
+    --color-accent-orange: #ffb601; /* Naranja/Amarillo Acento */
+    --color-accent-magenta: #c50069; /* Pink/Magenta Acento */
+    --color-accent-blue: #00a0f0; /* Azul Brillante Acento */
+
+    /* Mapeo de nombres conceptuales anteriores a los nuevos colores */
+    --primary-blue: var(--color-accent-blue); /* Usamos el azul brillante para elementos primarios en fondos claros */
+    --accent-red: var(--color-accent-magenta); /* Usamos magenta donde antes había rojo (e.g. divider) */
+    --accent-yellow: var(--color-accent-orange); /* Usamos el naranja/amarillo donde antes había amarillo (e.g. highlights) */
+    --accent-orange: var(--color-accent-orange); /* Usamos el naranja/amarillo donde antes había naranja (e.g. cta gradient) */
+    --text-light: #FFFFFF; /* Texto blanco sigue siendo texto claro */
+    --text-dark: #333333; /* Texto oscuro (usado menos con fondo oscuro) */
+    --bg-light: #f4f7f9; /* Fondo claro (para secciones como cursos) */
+    --bg-white: #FFFFFF; /* Fondo blanco (para tarjetas) */
+    --border-light: #e0e0e0; /* Borde claro */
+    --shadow-soft: 0 5px 15px rgba(0, 0, 0, 0.08);
+    --shadow-medium: 0 8px 25px rgba(0, 92, 187, 0.15); /* Reevaluar esta sombra con nueva paleta si se usa en fondo oscuro */
+
+    /* Colores espaciales derivados de la nueva paleta */
+    --space-dark-bg: var(--color-dark-primary);
+    --space-darker-bg: #1a1d2f; /* Tono ligeramente más oscuro que el primario oscuro */
+    --neon-blue: var(--color-accent-blue); /* Usamos el azul brillante para el neón */
+}
+
+/* --- Header --- */
+.main-header {
+    background-color: rgba(var(--text-light), 0.98); /* Fondo casi blanco, ligeramente transparente */
+    padding: 1rem 0;
+    box-shadow: var(--shadow-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease;
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between; /* Espacio entre logo, nav y greeting */
+    align-items: center;
+}
+
+.main-header .logo {
+    height: 45px;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    flex-grow: 1; /* Permite a la navegación ocupar espacio central */
+    justify-content: center; /* Centra los enlaces de navegación */
+}
+
+.main-nav a {
+    color: var(--color-dark-primary); /* Color oscuro para enlaces de navegación */
+    text-decoration: none;
+    margin: 0 1rem;
+    font-weight: 700;
+    transition: color 0.3s ease;
+}
+
+.main-nav a:hover {
+    color: var(--color-accent-blue);
+}
+
+/* Estilo para el saludo dinámico y la hora en el header */
+.greeting-time {
+    font-size: 1rem;
+    color: var(--color-accent-orange); /* Color naranja para el texto */
+    font-weight: 700;
+    font-family: 'Montserrat', sans-serif;
+    /* margin-left: 1.5rem; */ /* Ajusta si necesitas espacio a la izquierda */
+}
+
+
+/* --- Hero Section --- */
+.hero-section {
+    /* Fondo de galaxia - Asegúrate de usar la ruta correcta a tu imagen */
+    background-image: url('galaxy.gif'); /* <--- Usa tu ruta real */
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-dark-primary); /* Color de respaldo */
+    color: var(--text-light);
+
+    /* Flexbox para apilar imagen y texto */
+    display: flex;
+    flex-direction: column; /* Apila verticalmente */
+    align-items: center; /* Centra horizontalmente los elementos apilados */
+    justify-content: center; /* Centra el bloque completo verticalmente si hay espacio */
+    gap: 10px; /* Espacio entre la imagen y el texto */
+
+    padding: 5rem 20px; /* <-- Reducido de 8rem */
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+    text-align: center; /* Texto centrado por defecto */
+    box-shadow: inset 0 -50px 100px rgba(0,0,0,0.5);
+}
+
+/* Pseudo-elemento para estrellas sutiles sobre el fondo de galaxia (opcional) */
+.hero-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,0.05) 0.5px, transparent 0.5px),
+                radial-gradient(circle, rgba(255,255,255,0.05) 0.5px, transparent 0.5px);
+    background-size: 50px 50px, 100px 100px;
+    background-position: 0 0, 25px 25px;
+    opacity: 0.5;
+    z-index: 0;
+}
+
+/* Formas decorativas opcionales */
+.hero-shape {
+    position: absolute;
+    bottom: -50px;
+    left: -50px;
+    width: 200px;
+    height: 200px;
+    background-color: rgba(var(--color-accent-magenta), 0.3); /* Magenta sutil */
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+    transform: rotate(45deg);
+    opacity: 0.7;
+    z-index: 1;
+    filter: blur(5px);
+    animation: floatShape 8s ease-in-out infinite alternate;
+}
+/* Segunda forma decorativa */
+.hero-section::after {
+     content: '';
+     position: absolute;
+     top: 20px;
+     right: 20px;
+     width: 150px;
+     height: 150px;
+     background-color: rgba(var(--color-accent-blue), 0.3); /* Azul sutil */
+     border-radius: 50%;
+     opacity: 0.5;
+     z-index: 1;
+     filter: blur(7px);
+     animation: floatShape 10s ease-in-out infinite alternate reverse;
+}
+
+
+/* Estilo para el contenedor de la imagen que gira (Logo Planeta) */
+.hero-image-container {
+    flex-shrink: 0;
+    width: 200px; /* Tamaño ajustado (más grande) */
+    height: 200px; /* Tamaño ajustado */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    /* Sombra con efecto de brillo espacial usando colores oficiales */
+    box-shadow: 0 0 40px rgba(var(--color-accent-blue), 0.7),
+                0 0 80px rgba(var(--color-accent-magenta), 0.6); /* Combinación de azul y magenta */
+    border-radius: 50%;
+    z-index: 2; /* Asegura que esté sobre las formas y fondo */
+    margin-bottom: 30px; /* Espacio entre la imagen y el texto */
+}
+
+/* Estilo para la imagen del logo Planeta */
+#rotating-coin-image {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border-radius: 50%;
+    box-shadow: none;
+    animation: rotate3d-coin 6s infinite linear;
+    transform-style: preserve-3d;
+}
+
+
+/* Estilo para el contenedor del contenido de texto en Hero */
+.hero-content { /* Re-using the container class is fine here */
+    flex-grow: 1;
+    max-width: 600px; /* Reducido de 700px */
+    text-align: center; /* Centra el texto */
+    color: var(--text-light);
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    z-index: 2; /* Asegura que esté sobre las formas y fondo */
+    opacity: 0; /* Inicialmente invisible para animación */
+    transform: translateY(20px); /* Inicialmente un poco desplazado */
+    animation: fadeInUpContent 0.8s ease-out forwards 0.5s; /* Animación de aparición */
+}
+
+
+.hero-content h1 {
+    font-size: 3rem; /* Reducido de 3.5rem */
+    font-weight: 900;
+    line-height: 1.2;
+    margin-bottom: 0.4em; /* Ajustado ligeramente */
+    color: var(--text-light);
+}
+
+.highlight-text {
+    color: var(--color-accent-orange); /* Usamos el naranja/amarillo */
+}
+
+.hero-content .subtitle {
+    font-size: 1.1rem; /* Reducido de 1.3rem */
+    margin-bottom: 1.5rem; /* Ajustado */
+    opacity: 0.9;
+}
+
+/* Ajustes para la lista de beneficios dentro de hero-content */
+.beneficios-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 auto 1.5rem auto; /* Ajustado */
+    display: inline-block; /* Permite centrar el bloque */
+    text-align: left; /* Mantiene la alineación interna */
+}
+
+.beneficios-list li {
+    margin-bottom: 0.6rem; /* Ajustado */
+    font-size: 1rem; /* Reducido de 1.1rem */
+    display: flex;
+    align-items: center;
+}
+
+.benefit-icon {
+    color: var(--color-accent-orange); /* Iconos de beneficios con color naranja */
+    margin-right: 10px; /* Ajustado ligeramente */
+    font-size: 1.2em; /* Reducido ligeramente */
+}
+
+.hero-content .subtexto {
+    font-size: 0.9rem; /* Reducido de 1rem */
+    margin: 0 auto 2rem auto; /* Ajustado */
+    opacity: 0.8;
+    max-width: 550px; /* Opcional: reducir ancho máximo del subtexto */
+}
+
+/* --- Botones --- */
+.cta-button {
+    display: inline-block;
+    padding: 12px 30px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: none;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Botón Primario (Naranja/Amarillo) - Ajustado para ser más pequeño en Hero */
+.primary-cta {
+    background: linear-gradient(45deg, var(--color-accent-orange), #ff9500); /* Gradiente con naranja */
+    color: var(--color-dark-primary); /* Texto oscuro */
+    box-shadow: 0 4px 15px rgba(var(--color-accent-orange), 0.4);
+     padding: 10px 25px; /* Reducido de 12px 30px */
+     font-size: 0.95rem; /* Reducido ligeramente de 1rem */
+}
+
+.primary-cta:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(var(--color-accent-orange), 0.6);
+}
+
+/* Botón Secundario (en tarjetas - Azul Brillante) */
+.card-cta {
+    background-color: var(--color-accent-blue); /* Fondo azul brillante */
+    color: var(--text-light);
+    box-shadow: 0 4px 15px rgba(var(--color-accent-blue), 0.4);
+}
+
+.card-cta:hover {
+    background-color: #007bb5; /* Tono de azul más oscuro */
+    transform: translateY(-3px);
+    box-shadow: 0 7px 20px rgba(var(--color-accent-blue), 0.6);
+}
+
+/* Efecto sutil al hacer clic */
+.cta-button:active {
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --- Sección Cursos --- */
+.cursos-section {
+    padding: 5rem 0;
+    background-color: var(--bg-light); /* Fondo claro */
+    position: relative;
+    overflow: hidden;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.8rem;
+    color: var(--color-dark-primary); /* Título oscuro */
+    margin-bottom: 1rem;
+}
+
+/* Divisor estilizado (Magenta) */
+.styled-divider {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, transparent 0%, var(--color-accent-magenta) 50%, transparent 100%); /* Gradiente con magenta */
+    border: none;
+    margin: 0 auto 3.5rem auto;
+    border-radius: 2px;
+    filter: drop-shadow(0 0 5px rgba(var(--color-accent-magenta), 0.6)); /* Sombra magenta */
+}
+
+.cursos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Ajustado min-width */
+    gap: 2.5rem;
+    align-items: stretch;
+}
+
+/* Estilo para las tarjetas de curso y la demo visual */
+.curso-card, .demo-visual-container {
+    background-color: var(--bg-white);
+    /* Bordes redondeados (moderados) */
+    border-radius: 15px; /* Ajusta para el nivel deseado de redondez */
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    /* Efecto neón azul sutil por defecto */
+    box-shadow: 0 0 8px rgba(var(--neon-blue), 0.3), var(--shadow-soft);
+
+    /* Animación de aparición al cargar la página (se puede mejorar con JS al hacer scroll) */
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
+/* Retraso escalonado para la animación de aparición */
+/* Ajusta estos retrasos según el orden de tus elementos en el HTML */
+.cursos-grid .curso-card:nth-child(1) { animation-delay: 0.3s; } /* Primer Curso */
+.cursos-grid .curso-card:nth-child(2) { animation-delay: 0.4s; } /* Segundo Curso */
+/* Si tuvieras más tarjetas, continúa: .cursos-grid .curso-card:nth-child(3) { animation-delay: 0.5s; } */
+.demo-visual-container { animation-delay: 0.5s; } /* Retraso para la demo visual */
+
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Efecto en hover para tarjetas de curso y demo visual (más neón) */
+.curso-card:hover, .demo-visual-container:hover {
+    transform: translateY(-8px);
+    /* Sombra combinada: brillo neón más intenso + sombra media */
+    box-shadow: 0 0 20px rgba(var(--neon-blue), 0.6), var(--shadow-medium);
+}
+
+
+.card-image-container {
+    background-color: var(--color-dark-primary); /* Fondo oscuro para la imagen */
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.card-image-container img {
+    max-width: 80px;
+    margin: 0 auto;
+    /* filter: brightness(0) invert(1); */ /* No aplicar filtro si la imagen original tiene color */
+}
+
+.card-content {
+    padding: 1.5rem 2rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.curso-level {
+    display: inline-block;
+    padding: 3px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+}
+
+.curso-level.basico {
+    background-color: rgba(var(--color-accent-orange), 0.2);
+    color: var(--color-accent-orange);
+}
+
+.curso-level.intermedio {
+    background-color: rgba(var(--color-accent-magenta), 0.2); /* Usamos magenta */
+    color: var(--color-accent-magenta); /* Usamos magenta */
+}
+
+.curso-duration {
+    font-size: 0.9rem;
+    color: #777; /* Gris neutro */
+    margin-bottom: 0.5rem;
+}
+.curso-duration i {
+    margin-right: 5px;
+}
+
+.card-content h3 {
+    color: var(--color-dark-primary); /* Título de tarjeta oscuro */
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    font-size: 1.5rem;
+}
+.card-content h4 {
+    color: var(--color-dark-primary); /* Subtítulo de tarjeta oscuro */
+    font-size: 1rem;
+    margin-top: 1.2rem;
+    margin-bottom: 0.6rem;
+    border-top: 1px solid var(--border-light);
+    padding-top: 0.8rem;
+}
+
+.skills-list {
+    list-style: none;
+    padding: 0;
+    font-size: 0.9rem;
+    color: #555; /* Gris neutro */
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+}
+
+.skills-list li {
+    margin-bottom: 0.4rem;
+    display: flex;
+    align-items: center;
+}
+
+.skills-list i {
+    color: var(--color-accent-blue); /* Iconos de skills azul brillante */
+    margin-right: 8px;
+    font-size: 0.8em;
+}
+
+.card-content .card-cta {
+    align-self: flex-start;
+    margin-top: auto;
+}
+
+
+/* --- Estilos para el Celular Animado (Integrado desde el demo) --- */
+/* Prefijamos todos los selectores con .demo-visual-container o .phone */
+
+.demo-visual-container {
+    /* Mantener estilos para posicionamiento en el grid */
+    display: flex; /* Para centrar el contenido verticalmente si es más corto que las tarjetas */
+    flex-direction: column; /* Apilar contenido si hay más de uno (ej. teléfono y texto) */
+    align-items: center; /* Centra horizontalmente el teléfono */
+    justify-content: center; /* Centra verticalmente el teléfono */
+    padding: 20px; /* Ajusta el padding si es necesario para que el teléfono quepa bien */
+    /* Eliminar estilos de texto o imágenes específicas si ya no están directamente aquí */
+    /* filter: drop-shadow(...) ya no es necesario en el contenedor, se aplica al teléfono */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Mantener animación de aparición y hover */
+    opacity: 0; /* Mantiene la animación de aparición */
+    transform: translateY(20px);
+    animation: fadeInUp 0.6s ease-out forwards;
+    animation-delay: 0.5s; /* Mantener el retraso */
+    /* Mantener efecto neón y sombra en hover */
+    box-shadow: 0 0 8px rgba(var(--neon-blue), 0.3), var(--shadow-soft);
+    /* Ajuste de redondez si es diferente a las tarjetas */
+    border-radius: 15px;
+}
+
+/* Efecto en hover para el contenedor del demo (igual que las tarjetas) */
+.demo-visual-container:hover {
+     transform: translateY(-8px);
+     box-shadow: 0 0 20px rgba(var(--neon-blue), 0.6), var(--shadow-medium);
+}
+
+
+.demo-visual-container .phone {
+    width: 300px;
+    height: 620px;
+    background: #1e1e2f; /* Color oscuro del teléfono */
+    border-radius: 50px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+    position: relative;
+    overflow: hidden;
+    border: 4px solid #000; /* Borde del teléfono */
+    flex-shrink: 0; /* Evita que el teléfono se encoja en el flex container */
+}
+
+.phone .screen {
+    width: 92%;
+    height: 90%;
+    background: white; /* Fondo de la pantalla */
+    margin: 5% auto; /* Centra la pantalla dentro del teléfono */
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    /* filter: drop-shadow(0 5px 10px rgba(0,0,0,0.2)); */ /* Opcional: sombra suave en la pantalla */
+}
+
+.phone .header {
+    height: 55px;
+    background: var(--primary-blue); /* Usar color oficial para header de app */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 17px;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 2; /* Asegura que esté sobre las vistas */
+}
+
+.phone .view {
+    position: absolute;
+    top: 55px; /* Debajo del header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 55px); /* Altura restante */
+    overflow-y: auto; /* Permite scroll si el contenido es largo */
+    transition: transform 0.7s ease-in-out; /* Animación de transición */
+    background: white;
+}
+
+.phone .view.overlay {
+    transform: translateY(100%); /* Empieza fuera de la pantalla (abajo) */
+    z-index: 2; /* Sobre la vista principal */
+}
+
+.phone .view.overlay.active {
+    transform: translateY(0%); /* Se mueve a la posición visible */
+}
+
+.phone .view.main-view {
+    z-index: 1; /* La vista principal está debajo */
+}
+
+.phone .app-elements {
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Espacio entre elementos de la lista */
+}
+
+.phone .app-element {
+    background: #f7f9fc; /* Fondo claro del elemento */
+    border-radius: 14px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    font-size: 15px;
+    color: var(--text-dark); /* Color oscuro para el texto del elemento */
+}
+
+.phone .app-element:hover {
+    background: #e3ecff; /* Cambio de fondo al pasar el ratón */
+    transform: scale(1.02); /* Ligero aumento de tamaño */
+}
+
+.phone .graphs-content,
+.phone .extra-content {
+    background: #f4f5f9; /* Fondo claro para el contenido de las vistas overlay */
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+}
+
+.phone .bar-chart {
+    width: 200px;
+    display: flex;
+    align-items: flex-end; /* Alinea las barras a la base */
+    height: 120px;
+    gap: 12px;
+    border-bottom: 1px solid #ccc; /* Eje horizontal */
+    padding-bottom: 5px;
+}
+
+.phone .bar {
+    width: 28px;
+    background: var(--color-accent-orange); /* Usar color oficial para barras */
+    border-radius: 6px 6px 0 0;
+    animation: grow 1s ease-out forwards; /* Animación de crecimiento */
+    transform-origin: bottom; /* Asegura que crezca desde abajo */
+    opacity: 0; /* Empieza invisible para la animación */
+}
+/* Retrasos de animación definidos en el keyframe */
+
+
+.phone .donut-chart {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    /* Colores oficiales en el gradiente cónico */
+    background: conic-gradient(var(--primary-blue) 0% 40%, var(--color-accent-orange) 40% 75%, #ccc 75% 100%);
+    position: relative;
+    animation: rotateChart 6s linear infinite; /* Animación de rotación */
+}
+
+.phone .donut-chart::after {
+    content: '';
+    position: absolute;
+    top: 25%; left: 25%;
+    width: 50%; height: 50%;
+    background: white; /* Agujero central */
+    border-radius: 50%;
+}
+
+.phone .back-button {
+    background: var(--primary-blue); /* Color oficial para botón de volver */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 14px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+.phone .back-button:hover {
+    background-color: #007bb5; /* Tono más oscuro en hover */
+}
+
+/* Estilos para el dedo animado */
+.phone .finger {
+    width: 38px;
+    height: 38px;
+    background: #f1c27d; /* Color piel */
+    border-radius: 50%;
+    position: absolute;
+    top: -60px; /* Empieza fuera de pantalla */
+    left: 120px; /* Posición horizontal */
+    animation: tapSequence 20s infinite ease-in-out; /* Animación de secuencia de toques */
+    z-index: 3; /* Asegura que esté sobre la pantalla */
+    opacity: 0.8; /* Ligera transparencia */
+}
+
+/* Asegúrate de que los estilos inline en el HTML para .extra-content p y ul no creen conflictos */
+/* o trasládalos al CSS si prefieres */
+
+
+/* --- Footer --- (Estilo basado en la imagen anterior con colores oficiales) */
+
+.main-footer {
+    background-color: var(--color-dark-primary);
+    color: rgba(var(--text-light), 0.7);
+    padding: 4rem 0 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.footer-content-wrapper {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 60px;
+    max-width: 1140px;
+    margin: 0 auto;
+    padding: 0 15px 3rem;
+    align-items: start;
+}
+
+.footer-left {
+    padding-right: 30px;
+}
+
+.footer-left .footer-logo img {
+    max-width: 150px;
+    margin-bottom: 1.5rem;
+     /* Eliminar filtro si el logo ya es blanco */
+     filter: none;
+}
+
+.footer-description {
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+    max-width: 400px;
+    line-height: 1.6;
+}
+
+.footer-contact {
+    margin-top: 2rem;
+}
+
+.footer-contact h4 {
+    color: var(--text-light);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.footer-contact p {
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: rgba(var(--text-light), 0.7);
+}
+
+.footer-contact a {
+    color: rgba(var(--text-light), 0.7);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--color-accent-orange);
+}
+
+.social-links.vertical {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin-top: 1.5rem;
+}
+
+.social-links.vertical a {
+    color: rgba(var(--text-light), 0.7);
+    font-size: 1.6rem;
+    transition: color 0.3s ease;
+    margin: 0;
+}
+
+.social-links.vertical a:hover {
+    color: var(--color-accent-orange);
+}
+
+
+.footer-right {
+     text-align: right;
+}
+
+/* Estilo para el lema del footer */
+.footer-motto {
+    font-size: 1.8rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    color: var(--text-light);
+    line-height: 1.4;
+    /* Puedes añadir un margen si es necesario */
+}
+
+
+.footer-bottom {
+    background-color: var(--space-darker-bg);
+    color: rgba(var(--text-light), 0.5);
+    padding: 1rem 0;
+    font-size: 0.8rem;
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-bottom .copyright,
+.footer-bottom .designed-by {
+    margin: 5px 0;
+}
+
+
+/* Botón flotante de WhatsApp */
+.whatsapp-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #25D366; /* Standard WhatsApp green */
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    z-index: 1001;
+    transition: transform 0.3s ease;
+    text-decoration: none;
+}
+
+.whatsapp-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* --- Animaciones Keyframes --- */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rocketLaunch {
+    0% { transform: translate(0, 0) rotate(-10deg); opacity: 1; }
+    20% { transform: translate(20vw, -30vh) rotate(25deg); }
+    50% { transform: translate(45vw, -60vh) rotate(45deg); opacity: 1; }
+    80% { transform: translate(80vw, -110vh) rotate(60deg); opacity: 0.8; }
+    100% { transform: translate(100vw, -130vh) rotate(70deg); opacity: 0; }
+}
+@keyframes flameWaver {
+    0% { height: 45px; transform: translateX(-50%) scaleX(0.9); opacity: 0.9; }
+    100% { height: 55px; transform: translateX(-50%) scaleX(1.1); opacity: 1; }
+}
+@keyframes floatShape {
+    0% { transform: translate(0, 0) rotate(45deg); }
+    100% { transform: translate(20px, 30px) rotate(50deg); }
+}
+@keyframes rotate3d-coin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+@keyframes fadeInUpContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keyframes del celular animado */
+@keyframes grow {
+    from { transform: scaleY(0); opacity: 0;} /* Añadimos opacity 0 al inicio */
+    to { transform: scaleY(1); opacity: 1;} /* Terminamos en opacity 1 */
+}
+
+@keyframes rotateChart {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes tapSequence {
+    /* Define los puntos donde el dedo toca la pantalla */
+    0%, 9%, 19%, 24%, 34%, 39%, 49%, 54%, 64%, 69%, 79%, 100% { /* Oculto la mayor parte del tiempo */
+        top: -60px;
+        opacity: 0;
+    }
+    /* Posiciones de "toque" */
+    5% { top: 90px; opacity: 1; } /* Primer toque: "Ver estadísticas" */
+    7% { top: 95px; opacity: 1; } /* Pequeño movimiento hacia abajo */
+    8% { top: 90px; opacity: 1; } /* Vuelve a la posición */
+
+    20% { top: 180px; opacity: 1; } /* Segundo toque: "Reportes y métricas" */
+    22% { top: 185px; opacity: 1; }
+    23% { top: 180px; opacity: 1; }
+
+    35% { top: 520px; opacity: 1; } /* Tercer toque: "Volver" (en la vista de estadísticas) */
+    37% { top: 525px; opacity: 1; }
+    38% { top: 520px; opacity: 1; }
+
+    50% { top: 180px; opacity: 1; } /* Cuarto toque: "Reportes y métricas" */
+    52% { top: 185px; opacity: 1; }
+    53% { top: 180px; opacity: 1; }
+
+    65% { top: 520px; opacity: 1; } /* Quinto toque: "Volver" (en la vista de reportes) */
+    67% { top: 525px; opacity: 1; }
+    68% { top: 520px; opacity: 1; }
+}
+
+
+/* --- Media Queries (Ajustes Responsivos) --- */
+
+@media (max-width: 992px) {
+    .hero-content h1 { font-size: 2.5rem; } /* Ajustado para tablet */
+    .hero-content .subtitle { font-size: 1rem; } /* Ajustado para tablet */
+    /* Ajusta otros elementos del hero-content si es necesario para este breakpoint */
+}
+
+@media (max-width: 768px) {
+     /* Ajusta la sección Hero a columna (ya estaba así) */
+     .hero-section {
+         flex-direction: column;
+         text-align: center;
+         gap: 30px;
+         padding: 3rem 20px; /* <-- Reducido de 4rem */
+     }
+     /* Ajusta la posición de la segunda forma en móvil */
+     .hero-section::after {
+         top: auto;
+         bottom: 20px;
+         left: 20px;
+         right: auto;
+     }
+
+     /* Ajusta el tamaño y margen de la imagen giratoria */
+     .hero-image-container {
+         width: 250px; /* Tamaño reducido en móvil */
+         height: 250px;
+         margin-bottom: 20px;
+         box-shadow: 0 0 20px rgba(var(--color-accent-blue), 0.5),
+                     0 0 40px rgba(var(--color-accent-magenta), 0.4);
+     }
+
+     /* Ajusta el contenido de texto en Hero */
+     .hero-content {
+         text-align: center;
+         max-width: 100%;
+     }
+     .beneficios-list { /* Centra la lista en móvil */
+         display: inline-block;
+         text-align: left;
+     }
+     .hero-content .subtexto {
+         text-align: center;
+     }
+
+
+    .hero-content h1 { font-size: 2.1rem; } /* Ajustado para móvil */
+    .section-title { font-size: 2.2rem; }
+
+    /* Apila las tarjetas y la demo */
+    .cursos-grid {
+        grid-template-columns: 1fr; /* Una columna */
+        gap: 2rem; /* Ajusta espacio */
+    }
+    .demo-visual-container {
+        margin-top: 2rem;
+    }
+     /* Asegura que el teléfono se centre dentro de su contenedor en móvil */
+     .demo-visual-container .phone {
+         margin: 0 auto;
+     }
+
+
+    /* Ajustes para el cohete en móvil */
+    .animated-rocket {
+        width: 40px;
+        left: 5%;
+        bottom: 5%;
+        animation-duration: 7s;
+    }
+    .css-rocket .rocket-body { height: 80px;}
+    .css-rocket .rocket-flame { bottom: -30px; height: 40px; }
+
+    /* Ajusta el Grid del footer a una sola columna */
+    .footer-content-wrapper {
+        grid-template-columns: 1fr;
+        gap: 40px;
+        padding-bottom: 2rem;
+    }
+
+    /* Centra el contenido de las columnas del footer */
+    .footer-left,
+    .footer-right {
+        text-align: center;
+        padding-right: 0;
+    }
+
+    .footer-left .footer-logo img {
+        margin-left: auto;
+        margin-right: auto;
+        filter: none; /* Eliminar filtro si el logo ya es blanco */
+    }
+
+    .footer-description {
+         margin-left: auto;
+         margin-right: auto;
+         max-width: 90%;
+    }
+
+    .footer-contact {
+        text-align: center;
+    }
+    .social-links.vertical {
+        justify-content: center;
+    }
+
+    .footer-motto {
+        font-size: 1.5rem;
+    }
+
+    /* Ajusta la barra inferior del footer */
+    .footer-bottom .container {
+        flex-direction: column;
+        text-align: center;
+    }
+     .footer-bottom .copyright,
+     .footer-bottom .designed-by {
+         margin: 3px 0;
+     }
+
+    /* Ajusta el botón de WhatsApp */
+    .whatsapp-button {
+        width: 50px;
+        height: 50px;
+        font-size: 1.6rem;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    body { font-size: 14px; }
+    .header-container { flex-direction: column; gap: 0.5rem; }
+    .main-nav { margin-top: 0.5rem; }
+    .main-nav a { margin: 0 0.5rem; }
+    .greeting-time { font-size: 0.9rem; margin-top: 0.5rem; } /* Ajusta tamaño y margen del greeting */
+
+    .hero-section { padding: 2rem 15px; /* <-- Reducido de 3rem */ }
+    .hero-image-container { width: 200px; height: 200px; margin-bottom: 20px; } /* Más pequeño en móviles muy pequeños */
+    .hero-content h1 { font-size: 1.8rem; } /* Ajustado para móviles pequeños */
+    .hero-content .subtitle { font-size: 0.85rem; } /* Ajustado */
+    .cta-button { padding: 10px 25px; font-size: 0.9rem; }
+
+    .cursos-section { padding: 3rem 0; }
+    .section-title { font-size: 1.8rem; }
+    .styled-divider { margin-bottom: 2.5rem; }
+    .cursos-grid { gap: 1.5rem; } /* Espacio reducido */
+    .curso-card { border-radius: 10px; padding: 1rem; } /* Ajusta padding y redondez */
+    .card-image-container { padding: 1rem; }
+    .card-content { padding: 1rem; } /* Ajusta padding interno de la tarjeta */
+    .card-image-container img { max-width: 60px; }
+    .card-content h3 { font-size: 1.3rem; }
+    .curso-level { font-size: 0.7rem; padding: 2px 8px; }
+    .curso-duration { font-size: 0.8rem; }
+    .card-content h4 { font-size: 0.9rem; margin-top: 1rem; padding-top: 0.6rem;}
+    .skills-list { font-size: 0.8rem; margin-bottom: 1rem; }
+    .skills-list i { margin-right: 5px;}
+
+
+     /* Ajustes adicionales para el footer */
+    .footer-content-wrapper {
+        padding: 0 15px 2rem;
+        gap: 30px;
+    }
+     .footer-left .footer-logo img {
+         max-width: 100px;
+         filter: none; /* Eliminar filtro si el logo ya es blanco */
+     }
+     .footer-contact h4 { font-size: 1rem; }
+     .footer-contact p, .footer-contact a { font-size: 0.8rem; }
+     .social-links.vertical a { font-size: 1.4rem; }
+
+
+      .footer-motto { font-size: 1.2rem; }
+      .footer-bottom { padding: 0.6rem 0; }
+      .footer-bottom .container { padding: 0 10px; font-size: 0.7rem; }
+
+       /* Ajustes adicionales para el botón de WhatsApp */
+       .whatsapp-button {
+           width: 40px;
+           height: 40px;
+           font-size: 1.2rem;
+           bottom: 10px;
+           right: 10px;
+       }
+}
+
+/* Definiciones de Keyframes */
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+@keyframes rocketLaunch {
+    0% { transform: translate(0, 0) rotate(-10deg); opacity: 1; }
+    20% { transform: translate(20vw, -30vh) rotate(25deg); }
+    50% { transform: translate(45vw, -60vh) rotate(45deg); opacity: 1; }
+    80% { transform: translate(80vw, -110vh) rotate(60deg); opacity: 0.8; }
+    100% { transform: translate(100vw, -130vh) rotate(70deg); opacity: 0; }
+}
+@keyframes flameWaver {
+    0% { height: 45px; transform: translateX(-50%) scaleX(0.9); opacity: 0.9; }
+    100% { height: 55px; transform: translateX(-50%) scaleX(1.1); opacity: 1; }
+}
+@keyframes floatShape {
+    0% { transform: translate(0, 0) rotate(45deg); }
+    100% { transform: translate(20px, 30px) rotate(50deg); }
+}
+@keyframes rotate3d-coin {
+    0% { transform: rotateY(0deg); }
+    100% { transform: rotateY(360deg); }
+}
+@keyframes fadeInUpContent {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Keyframes del celular animado */
+@keyframes grow {
+    from { transform: scaleY(0); opacity: 0;} /* Añadimos opacity 0 al inicio */
+    to { transform: scaleY(1); opacity: 1;} /* Terminamos en opacity 1 */
+}
+
+@keyframes rotateChart {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+@keyframes tapSequence {
+    /* Define los puntos donde el dedo toca la pantalla */
+    0%, 9%, 19%, 24%, 34%, 39%, 49%, 54%, 64%, 69%, 79%, 100% { /* Oculto la mayor parte del tiempo */
+        top: -60px;
+        opacity: 0;
+    }
+    /* Posiciones de "toque" */
+    5% { top: 90px; opacity: 1; } /* Primer toque: "Ver estadísticas" */
+    7% { top: 95px; opacity: 1; } /* Pequeño movimiento hacia abajo */
+    8% { top: 90px; opacity: 1; } /* Vuelve a la posición */
+
+    20% { top: 180px; opacity: 1; } /* Segundo toque: "Reportes y métricas" */
+    22% { top: 185px; opacity: 1; }
+    23% { top: 180px; opacity: 1; }
+
+    35% { top: 520px; opacity: 1; } /* Tercer toque: "Volver" (en la vista de estadísticas) */
+    37% { top: 525px; opacity: 1; }
+    38% { top: 520px; opacity: 1; }
+
+    50% { top: 180px; opacity: 1; } /* Cuarto toque: "Reportes y métricas" */
+    52% { top: 185px; opacity: 1; }
+    53% { top: 180px; opacity: 1; }
+
+    65% { top: 520px; opacity: 1; } /* Quinto toque: "Volver" (en la vista de reportes) */
+    67% { top: 525px; opacity: 1; }
+    68% { top: 520px; opacity: 1; }
+}

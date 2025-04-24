@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mundo Binario Academy - Crea Apps Sin Código</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container header-container">
+            <img src="academy.png" alt="Mundo Binario Academy Logo" class="logo">
+            <a>Mundo Binario Academy</a>
+            <nav class="main-nav">
+               
+                <a href="#main-nav">Explorar</a>
+                <a href="https://www.mundobinario.com.mx/#">Comunidad</a>
+                <a href="#cursos">Planes</a>
+                 
+            </nav>
+            
+            <div id="greeting-time" class="greeting-time">Cargando hora...</div>
+        </div>
+    </header>
+
+    <main>
+        
+        <section id="hero" class="hero-section">
+            
+            <div class="hero-shape"></div>
+            <div class="hero-shape"></div> 
+            
+            <div class="animated-rocket css-rocket">
+                <div class="rocket-body">
+                    <div class="rocket-fin fin-left"></div>
+                    <div class="rocket-fin fin-right"></div>
+                    <div class="rocket-window"></div>
+                </div>
+                <div class="rocket-flame"></div>
+            </div>
+
+            
+             <div class="hero-image-container">
+                 
+                 <img src="Planeta logo.png" alt="Mundo Binario Academy Logo Planeta" id="rotating-coin-image">
+             </div>
+
+            <div class="container hero-content"> 
+                <h1>Crea apps móviles <span class="highlight-text">sin</span> escribir una sola línea de código</h1>
+                <p class="subtitle">¿Te imaginas construir poderosas aplicaciones móviles sin ser programador? Con nuestros cursos, aprenderás a usar Google Appsheet...</p>
+                <ul class="beneficios-list">
+                    <li><i class="fas fa-check-circle benefit-icon"></i> Automatiza procesos</li>
+                    <li><i class="fas fa-check-circle benefit-icon"></i> Crea apps para ventas, inventarios, CRM y más</li>
+                    <li><i class="fas fa-check-circle benefit-icon"></i> Publica tu app sin depender de desarrolladores</li>
+                </ul>
+                <p class="subtexto">Domina la tecnología que usan empresas de todo el mundo para digitalizar su negocio en tiempo récord. Sin código. Sin complicaciones. Solo resultados.</p>
+                <a href="#cursos" class="cta-button primary-cta">¡Quiero Aprender Ahora!</a>
+            </div> 
+
+        </section> 
+
+
+        
+        <section id="cursos" class="cursos-section">
+            <div class="container">
+                <h2 class="section-title">¿Qué quieres aprender <span class="highlight-text">HOY</span>?</h2>
+                <hr class="styled-divider">
+                <div class="cursos-grid">
+                   
+                    <div class="curso-card">
+                        <div class="card-image-container">
+                            
+                             <img src="essentials.png" alt="Appsheet Essentials Logo">
+                        </div>
+                        <div class="card-content">
+                            <h3>Appsheet Essentials</h3>
+                            <span class="curso-level basico">Básico</span>
+                            <p class="curso-duration"><i class="far fa-clock"></i> Duración: 5h</p>
+                            <p><strong>App a desarrollar:</strong> Punto de venta</p>
+                            <h4>Conocimientos preferentes</h4>
+                            <ul class="skills-list">
+                                <li><i class="fas fa-check"></i> Excel</li>
+                                <li><i class="fas fa-check"></i> Google sheets</li>
+                                <li><i class="fas fa-check"></i> Google drive</li>
+                                <li><i class="fas fa-check"></i> Google workspace</li>
+                            </ul>
+                            <a href="https://hotmart.com/es/marketplace/productos/appsheet-essentials/A92356495C" class="cta-button card-cta">Ver Detalles</a>
+                        </div>
+                    </div>
+
+                   
+                    <div class="curso-card">
+                         <div class="card-image-container">
+                             <img src="CRM.png" alt="Appsheet CRM Logo">
+                         </div>
+                         <div class="card-content">
+                              <h3>Appsheet CRM</h3>
+                              <span class="curso-level intermedio">Intermedio</span>
+                              <p class="curso-duration"><i class="far fa-clock"></i> Duración: 8h</p>
+                              <p><strong>App a desarrollar:</strong> CRM</p>
+                              <h4>Conocimientos requeridos</h4>
+                              <ul class="skills-list">
+                                   <li><i class="fas fa-check"></i> Appsheet Essentials</li>
+                                   <li><i class="fas fa-check"></i> Google sheets</li>
+                                   <li><i class="fas fa-check"></i> Google drive</li>
+                                   <li><i class="fas fa-check"></i> Google workspace</li>
+                              </ul>
+                              <a href="https://hotmart.com/es/marketplace/productos/appsheet-essentials/A92356495C" class="cta-button card-cta">Ver Detalles</a>
+                         </div>
+                    </div>
+
+              
+                     <div class="demo-visual-container">
+                       
+                          <div class="phone">
+                            <div class="screen">
+                                <div class="header">AppSheet App</div>
+
+                                <div class="view main-view active">
+                                    <div class="app-elements">
+                                        <div class="app-element">Registrar asistencia</div>
+                                        <div class="app-element" onclick="showGraphs()">Ver estadísticas</div>
+                                        <div class="app-element" onclick="showExtra()">Reportes y métricas</div>
+                                        <div class="app-element">Configuración</div>
+                                    </div>
+                                </div>
+
+                                <div class="view overlay graphs">
+                                    <div class="graphs-content">
+                                        <div class="bar-chart">
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                            <div class="bar"></div>
+                                        </div>
+                                        <div class="donut-chart"></div>
+                                        <button class="back-button" onclick="goBack(this)">Volver</button>
+                                    </div>
+                                </div>
+
+                                <div class="view overlay extra">
+                                    <div class="extra-content">
+                                        <p style="font-size: 14px; color: #333;">Reporte detallado:</p>
+                                        <ul style="text-align: left; font-size: 13px; padding: 0 15px;">
+                                            <li>Usuarios activos: 235</li>
+                                            <li>Eventos semanales: 48</li>
+                                            <li>Progreso medio: 82%</li>
+                                        </ul>
+                                        <button class="back-button" onclick="goBack(this)">Volver</button>
+                                    </div>
+                                </div>
+
+                                <div class="finger"></div>
+                            </div>
+                          </div>
+                          
+                          <p class="demo-text">Visualiza tus creaciones al instante.</p>
+                     </div>
+
+                </div> 
+            </div> 
+        </section>
+
+     </main> 
+
+
+     <footer class="main-footer">
+         <div class="footer-content-wrapper">
+             <div class="footer-left">
+                 <div class="footer-logo">
+                    
+                     <img src="academy.png" alt="Mundo Binario Academy Logo Blanco">
+                 </div>
+                 <p class="footer-description">Nuestro propósito además de educar, será preparar a estudiantes a escenarios reales que se enfrentarán en su día a día como profesionales.</p>
+                 <div class="footer-contact">
+                     <h4>Contacto</h4>
+                     <p>México</p>
+                     <p><a href="tel:+522223755426">+52 222 375 5426</a></p>
+                     <p><a href="mailto:mundobinarioacademy@gmail.com">mundobinarioacademy@gmail.com</a></p>
+                     <div class="social-links vertical">
+                          <a href="https://www.instagram.com/_mundobinario" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                          <a href="https://www.youtube.com/c/MundoBinarioByAxel" aria-label="YouTube"><i class="fab fa-youtube"></i></a> {/* Actualiza este enlace */}
+                          <a href="https://www.tiktok.com/@mundobinario" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                     </div>
+                 </div>
+             </div>
+             <div class="footer-right">
+        
+                 <p class="footer-motto">Aprende, aplica y replica.</p>
+             </div>
+         </div>
+         <div class="footer-bottom">
+             <div class="container">
+                 <p class="copyright">© <span id="current-year"></span> Mundo Binario. All Rights Reserved.</p>
+                 <p class="designed-by">Designed by Mundo Binario</p>
+             </div>
+         </div>
+     </footer>
+
+
+     <a href="https://wa.me/522223755426?text=Me%20gustar%C3%ADa%20saber%20sobre%20los%20cursos" class="whatsapp-button" target="_blank" aria-label="Chatea con nosotros por WhatsApp"> 
+         <i class="fab fa-whatsapp"></i>
+     </a>
+
+     <script>
+        // Script para el saludo dinámico y la hora
+        function updateGreetingAndTimer() {
+            const greetingElement = document.getElementById('greeting-time');
+            if (!greetingElement) return;
+
+            const now = new Date();
+            const hour = now.getHours();
+
+            let greeting;
+            if (hour >= 5 && hour < 12) {
+                greeting = '¡Buenos días!';
+            } else if (hour >= 12 && hour < 19) {
+                greeting = '¡Buenas tardes!';
+            } else {
+                greeting = '¡Buenas noches!';
+            }
+
+            // Formatear la hora (ej. HH:MM AM/PM)
+            const options = { hour: '2-digit', minute: '2-digit', hour12: true };
+            const formattedTime = now.toLocaleTimeString(navigator.language, options);
+
+            greetingElement.textContent = `${greeting} Son las ${formattedTime}`; // Mostrar saludo y hora
+        }
+
+        // Ejecutar la función una vez al cargar la página
+        updateGreetingAndTimer();
+
+        // Opcional: Actualizar la hora cada minuto (descomentar si se necesita)
+        // setInterval(updateGreetingAndTimer, 60000); // Actualiza cada 60 segundos
+
+        // Script para actualizar el año en el footer
+        document.getElementById('current-year').textContent = new Date().getFullYear();
+
+
+        // Script para las transiciones de pantalla del celular animado
+        function showGraphs() {
+          document.querySelector('.phone .graphs').classList.add('active');
+        }
+
+        function showExtra() {
+          document.querySelector('.phone .extra').classList.add('active');
+        }
+
+        function goBack(button) {
+          // Encuentra el ancestro más cercano con la clase .view (graphs o extra)
+          button.closest('.view').classList.remove('active');
+          // Si quisieras volver siempre a la vista principal, podrías hacer:
+          // document.querySelector('.phone .main-view').classList.add('active');
+          // Pero el demo original solo remueve la clase 'active' del overlay.
+        }
+
+     </script>
+</body>
+</html>
